@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,32 +9,34 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="/style.css" />">
 </head>
 <body>
-	<h1>Test results:</h1>
-	
-	 ${hello} !
-	<table class="CSSTableGenerator">
-		<tr>
-			<td>ID</td>
-			<td>Team Name</td>
-			<td>Team Code</td>
-			<td>IP address</td>
-			<td>Start Time</td>
-			<td>End Time</td>
-			<td>Score</td>
-		</tr>
-		<c:forEach var="result" items="${results}">
+	<h1>Test results</h1>
+	<c:if test="${resultSize==0}">
+	No results are submitted yet.
+	</c:if>
+	<c:if test="${resultSize>0}">
+		<div>Submitted results: ${resultSize}</div>
+		<table class="CSSTableGenerator">
 			<tr>
-				<td>${result.id}</td>
-				<td>${result.teamName}</td>
-				<td>${result.teamCode}</td>
-				<td>${result.ipAddress}</td>
-				<td><fmt:formatDate value="${result.startSubmitTime}"
-						pattern="HH:mm:ss" /></td>
-				<td><fmt:formatDate value="${result.endSubmitTime}"
-						pattern="HH:mm:ss" /></td>
-				<td>${result.score}</td>
+				<td>ID</td>
+				<td>Team Name</td>
+				<td>Team Code</td>
+				<td>IP address</td>
+				<td>Start Time</td>
+				<td>End Time</td>
+				<td>Score</td>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach var="result" items="${results}">
+				<tr>
+					<td>${result.id}</td>
+					<td>${result.teamName}</td>
+					<td>${result.teamCode}</td>
+					<td>${result.ipAddress}</td>
+					<td><fmt:formatDate value="${result.startSubmitTime}" pattern="HH:mm:ss" /></td>
+					<td><fmt:formatDate value="${result.endSubmitTime}" pattern="HH:mm:ss" /></td>
+					<td>${result.score}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 </body>
 </html>

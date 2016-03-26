@@ -51,6 +51,7 @@ public class CompetitionResultService {
         cr.setTeamName("Test Team");
         cr.setTeamCode("TT0001");
         results.add(cr);
+        results.clear();
 
     }
 

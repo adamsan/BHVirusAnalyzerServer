@@ -24,6 +24,7 @@ public class ResultsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("hello", "Hello everybody " + new Random().nextInt(100));
+        request.setAttribute("resultSize", CompetitionResultService.INSTANCE.getAllResults().size());
         request.setAttribute("results", CompetitionResultService.INSTANCE.getAllResults());
         getServletContext().getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
 	}
