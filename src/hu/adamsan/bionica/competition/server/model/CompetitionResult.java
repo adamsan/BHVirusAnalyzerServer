@@ -78,4 +78,10 @@ public class CompetitionResult {
         this.score = score;
     }
 
+    @Override
+    public String toString() {
+        return "CompetitionResult [id=" + id + ", ipAddress=" + ipAddress + ", teamName=" + teamName + ", teamCode=" + teamCode + ", score=" + score
+                + ", startSubmitTime=" + startSubmitTime + ", endSubmitTime=" + endSubmitTime + ", answers=" + answers + "]";
+    }
+
 }

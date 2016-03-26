@@ -31,7 +31,7 @@ public class addResult extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CompetitionResult competitionResult = new CompetitionResult();
-
+        // http://localhost:8080/BHVirusAnalyzerServer/addResult?teamName=TestTeam&teamCode=TT01&score=23&startSubmitTime=2016-03-26 18:43:22
         String teamName = request.getParameter("teamName");
         String teamCode = request.getParameter("teamCode");
         String ipAddress = request.getRemoteAddr();
@@ -39,9 +39,9 @@ public class addResult extends HttpServlet {
         Date startSubmitTime = null;
         try {
             String target = request.getParameter("startSubmitTime"); // "Thu Sep 28 20:29:30 JST 2000";
-            DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss z yyyy", Locale.ENGLISH);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
             startSubmitTime = df.parse(target);
-        } catch (ParseException ex) {
+        } catch (ParseException | NullPointerException ex) {
             ex.printStackTrace();
         }
         Date endSubmitTime = new Date();
@@ -57,6 +57,7 @@ public class addResult extends HttpServlet {
         competitionResult.setAnswers(answers);
 
         CompetitionResultService.INSTANCE.insertNewResult(competitionResult);
+        System.out.println(competitionResult);
 
         response.getWriter().append("Served at: ").append(request.getContextPath());
     }
