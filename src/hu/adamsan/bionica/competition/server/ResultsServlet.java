@@ -22,6 +22,13 @@ public class ResultsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    // To run this without tomcat:
+    // Build webapp-runner:
+    // mvn -Dmaven.test.skip=true package
+    // Package this to war file:
+    // mvn clean build package
+    // copy the jar and the war file to the same location, and run:
+    // java -jar webapp-runner.jar --port 80 BHVirusAnalyzerServer-0.0.1-SNAPSHOT.war
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("hello", "Hello everybody " + new Random().nextInt(100));
         request.setAttribute("resultSize", CompetitionResultService.INSTANCE.getAllResults().size());
