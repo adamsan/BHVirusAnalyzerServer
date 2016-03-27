@@ -21,5 +21,6 @@ public class CompetitionResultService {
     public void insertNewResult(CompetitionResult competitionResult) {
         // TODO: implement dummy
         results.add(competitionResult);
+        results.sort((o1, o2) -> o2.getScore() - o1.getScore());
     }
 }
