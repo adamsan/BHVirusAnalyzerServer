@@ -39,7 +39,7 @@ public class addResult extends HttpServlet {
         Date startSubmitTime = null;
         try {
             String target = request.getParameter("startSubmitTime"); // "Thu Sep 28 20:29:30 JST 2000";
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
             startSubmitTime = df.parse(target);
         } catch (ParseException | NullPointerException ex) {
             ex.printStackTrace();
