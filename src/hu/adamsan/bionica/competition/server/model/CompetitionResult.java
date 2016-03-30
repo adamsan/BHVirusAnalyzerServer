@@ -3,6 +3,7 @@ package hu.adamsan.bionica.competition.server.model;
 import java.util.Date;
 import java.util.List;
 
+//server side of SubmissionData
 public class CompetitionResult {
     private Integer id;
     private String ipAddress;
@@ -11,7 +12,7 @@ public class CompetitionResult {
     private int score;
     private Date startSubmitTime;
     private Date endSubmitTime;
-    private List<Answers> answers;
+    private List<Answer> givenAnswers;
 
     public Integer getId() {
         return id;
@@ -54,12 +55,12 @@ public class CompetitionResult {
         this.endSubmitTime = endSubmitTime;
     }
 
-    public List<Answers> getAnswers() {
-        return answers;
+    public List<Answer> getGivenAnswers() {
+        return givenAnswers;
     }
 
-    public void setAnswers(List<Answers> answers) {
-        this.answers = answers;
+    public void setGivenAnswers(List<Answer> answers) {
+        this.givenAnswers = answers;
     }
 
     public String getIpAddress() {
@@ -81,7 +82,7 @@ public class CompetitionResult {
     @Override
     public String toString() {
         return "CompetitionResult [id=" + id + ", ipAddress=" + ipAddress + ", teamName=" + teamName + ", teamCode=" + teamCode + ", score=" + score
-                + ", startSubmitTime=" + startSubmitTime + ", endSubmitTime=" + endSubmitTime + ", answers=" + answers + "]";
+                + ", startSubmitTime=" + startSubmitTime + ", endSubmitTime=" + endSubmitTime + ", answers=" + givenAnswers + "]";
     }
 
 }
