@@ -20,6 +20,7 @@
 			<tr>
 				<td>Question</td>
 				<td>Correct Answer</td>
+				<td>Point Value</td>
 
 				<c:forEach var="result" items="${resultsToCompare}">
 					<td>${result.teamName}(${result.teamCode})</td>
@@ -27,12 +28,22 @@
 			</tr>
 			<c:forEach var="question" items="${questions}" varStatus="status">
 				<tr>
-					<td>${question.question}</td><td>${question.correctAnswer}</td>
+					<td>${question.question}</td>
+					<td>${question.correctAnswer}</td>
+					<td>${question.pointValue}</td>
 					<c:forEach var="i" begin="0" end="${resultsToCompareSize-1}">
-					<td>${resultsToCompare[i].givenAnswers[status.index].givenAnswer}</td>
+						<td>${resultsToCompare[i].givenAnswers[status.index].givenAnswer}</td>
 					</c:forEach>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<c:forEach var="result" items="${resultsToCompare}">
+					<td>${result.score}</td>
+				</c:forEach>
+			</tr>
 		</table>
 	</c:if>
 </body>
