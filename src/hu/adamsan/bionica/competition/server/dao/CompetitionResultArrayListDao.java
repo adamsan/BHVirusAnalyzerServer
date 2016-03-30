@@ -31,6 +31,7 @@ public class CompetitionResultArrayListDao implements DAO<CompetitionResult> {
 
     @Override
     public boolean save(CompetitionResult entity) {
+        entity.setId(results.size() + 1);
         results.add(entity);
         results.sort((a, b) -> b.getScore() - a.getScore());
         return true;
