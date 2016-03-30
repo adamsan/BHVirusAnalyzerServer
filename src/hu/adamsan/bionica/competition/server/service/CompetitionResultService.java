@@ -22,4 +22,8 @@ public class CompetitionResultService {
     public void insertNewResult(CompetitionResult competitionResult) {
         competitionResultDAO.save(competitionResult);
     }
+
+    public CompetitionResult find(long id) {
+        return competitionResultDAO.find(id);
+    }
 }

@@ -26,7 +26,7 @@ public class CompetitionResultArrayListDao implements DAO<CompetitionResult> {
 
     @Override
     public CompetitionResult find(long id) {
-        throw new RuntimeException("Not implemented");
+        return results.stream().filter((res) -> id == res.getId()).findFirst().orElse(null);
     }
 
     @Override
