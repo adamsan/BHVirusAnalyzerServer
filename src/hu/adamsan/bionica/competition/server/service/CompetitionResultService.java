@@ -19,7 +19,7 @@ public class CompetitionResultService {
         return competitionResultDAO.findAll();
     }
 
-    public void insertNewResult(CompetitionResult competitionResult) {
+    public synchronized void insertNewResult(CompetitionResult competitionResult) {
         competitionResultDAO.save(competitionResult);
     }
 

@@ -14,23 +14,23 @@ public class CompetitionResultArrayListDao implements DAO<CompetitionResult> {
     private List<CompetitionResult> results = new ArrayList<>();
 
     @Override
-    public List<CompetitionResult> findAll() {
+    public synchronized List<CompetitionResult> findAll() {
         return results;
     }
 
     @Override
-    public boolean delete(CompetitionResult entity) {
+    public synchronized boolean delete(CompetitionResult entity) {
         results.remove(entity);
         return true;
     }
 
     @Override
-    public CompetitionResult find(long id) {
+    public synchronized CompetitionResult find(long id) {
         return results.stream().filter((res) -> id == res.getId()).findFirst().orElse(null);
     }
 
     @Override
-    public boolean save(CompetitionResult entity) {
+    public synchronized boolean save(CompetitionResult entity) {
         entity.setId(results.size() + 1);
         results.add(entity);
         results.sort((a, b) -> b.getScore() - a.getScore());
