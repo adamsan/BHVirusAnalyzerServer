@@ -1,6 +1,7 @@
 package hu.adamsan.bionica.competition.server.model;
 
 public class Question {
+    private Integer id;
     private String question;
     private String correctAnswer;
     private int pointValue;
@@ -43,6 +44,12 @@ public class Question {
 
     public int evaluateAnswer(String response) {
         return response != null && correctAnswer != null && response.trim().toUpperCase().equals(correctAnswer.trim().toUpperCase()) ? pointValue : 0;
+    }
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }
