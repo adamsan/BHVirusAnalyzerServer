@@ -1,4 +1,4 @@
-package hu.adamsan.bionica.competition.server.dao;
+package hu.adamsan.bionica.competition.server.dao.sqlite;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.adamsan.bionica.competition.server.dao.DAO;
 import hu.adamsan.bionica.competition.server.dao.rowmapper.CompetitionResultMapper;
 import hu.adamsan.bionica.competition.server.model.CompetitionResult;
 

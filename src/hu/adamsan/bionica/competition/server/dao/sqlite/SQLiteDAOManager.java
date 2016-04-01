@@ -1,4 +1,4 @@
-package hu.adamsan.bionica.competition.server.dao;
+package hu.adamsan.bionica.competition.server.dao.sqlite;
 
 import java.io.BufferedReader;
 import java.io.IOException;

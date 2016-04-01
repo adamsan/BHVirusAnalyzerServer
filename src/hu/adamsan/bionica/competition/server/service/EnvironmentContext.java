@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import hu.adamsan.bionica.competition.server.dao.AnswerSqliteDAO;
 import hu.adamsan.bionica.competition.server.dao.CompetitionResultArrayListDao;
-import hu.adamsan.bionica.competition.server.dao.CompetitionResultSQLiteDAO;
 import hu.adamsan.bionica.competition.server.dao.DAO;
-import hu.adamsan.bionica.competition.server.dao.QuestionSqliteDAO;
+import hu.adamsan.bionica.competition.server.dao.sqlite.AnswerSqliteDAO;
+import hu.adamsan.bionica.competition.server.dao.sqlite.CompetitionResultSQLiteDAO;
+import hu.adamsan.bionica.competition.server.dao.sqlite.QuestionSqliteDAO;
 import hu.adamsan.bionica.competition.server.model.Answer;
 import hu.adamsan.bionica.competition.server.model.CompetitionResult;
 import hu.adamsan.bionica.competition.server.model.Question;

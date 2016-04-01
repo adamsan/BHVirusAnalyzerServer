@@ -1,7 +1,8 @@
-package hu.adamsan.bionica.competition.server.dao;
+package hu.adamsan.bionica.competition.server.dao.sqlite;
 
 import java.util.List;
 
+import hu.adamsan.bionica.competition.server.dao.DAO;
 import hu.adamsan.bionica.competition.server.model.Answer;
 
 public class AnswerSqliteDAO implements DAO<Answer> {
