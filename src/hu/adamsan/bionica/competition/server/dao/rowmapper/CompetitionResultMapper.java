@@ -26,7 +26,7 @@ public class CompetitionResultMapper implements ResultSetMapper<CompetitionResul
         return cr;
     }
 
-    public void createRow(CompetitionResult cr, PreparedStatement preparedStatement) {
+    public void createRow(CompetitionResult cr, PreparedStatement preparedStatement, Integer parentId) {
         // ip_address,team_name,team_code,score,start_submit_time,end_submit_time
         try {
             preparedStatement.setString(1, cr.getIpAddress());

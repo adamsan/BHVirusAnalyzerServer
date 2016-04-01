@@ -1,5 +1,5 @@
 create table if not exists answer(
-    id int primary key,
+    id integer primary key,
     answer_order int,
     question_id int,
     given_answer varchar(200),
@@ -7,14 +7,14 @@ create table if not exists answer(
 );
 
 create table if not exists question(
-    id int primary key,
+    id integer primary key,
     question varchar(200),
     correct_answer varchar(200),
     point_value int
 );
 
 create table if not exists competitionresult(
-    id int primary key,
+    id integer primary key,
     ip_address varchar(50),
     team_name varchar(200),
     team_code varchar(200),
