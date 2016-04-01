@@ -26,7 +26,7 @@ public class EnvironmentContext {
 
     public static void init() {
         Properties properties = new Properties();
-        try (InputStream resourceAsStream = EnvironmentContext.class.getResourceAsStream("dbconfig.properties")) {
+        try (InputStream resourceAsStream = EnvironmentContext.class.getResourceAsStream("/dbconfig.properties")) {
             properties.load(resourceAsStream);
             String property = properties.getProperty("database_method", "memory");
             switch (property) {
