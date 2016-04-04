@@ -6,6 +6,7 @@ public class Answer {
     private int answerOrder;
     private Question question;
     private String givenAnswer;
+    private CompetitionResult competitionResult;
 
     public Integer getId() {
         return id;
@@ -39,5 +40,12 @@ public class Answer {
         this.question = question;
     }
 
+    public CompetitionResult getCompetitionResult() {
+        return competitionResult;
+    }
+
+    public void setCompetitionResult(CompetitionResult competitionResult) {
+        this.competitionResult = competitionResult;
+    }
 
 }
