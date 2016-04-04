@@ -31,6 +31,7 @@ public class CompetitionResultSQLiteDAO implements DAO<CompetitionResult> {
                 CompetitionResult competitionResult = new CompetitionResultMapper().mapRow(resultSet);
                 System.out.println(competitionResult);
                 List<Answer> answers = AnswerSqliteDAO.INSTANCE.findAll(competitionResult.getId());
+                answers.forEach(a -> a.setCompetitionResult(competitionResult));
                 competitionResult.setGivenAnswers(answers);
                 result.add(competitionResult);
             }
@@ -49,22 +50,23 @@ public class CompetitionResultSQLiteDAO implements DAO<CompetitionResult> {
 
     @Override
     public CompetitionResult find(long id) {
-        CompetitionResult result = null;
         try (Connection con = SQLiteDAOManager.getConnection();
                 PreparedStatement pstmt = con.prepareStatement(SELECT_COMPETITIONRESULT);) {
             pstmt.setInt(1, (int) id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 rs.next();
                 CompetitionResultMapper mapper = new CompetitionResultMapper();
-                result = mapper.mapRow(rs);
+                CompetitionResult result = mapper.mapRow(rs);
                 List<Answer> answers = AnswerSqliteDAO.INSTANCE.findAll(result.getId());
+                answers.forEach(a -> a.setCompetitionResult(result));
                 result.setGivenAnswers(answers);
+                return result;
             }
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return null;
     }
 
     @Override
